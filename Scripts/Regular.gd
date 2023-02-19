@@ -1,12 +1,9 @@
 extends Node2D
 
-var cancel :bool
+var cancel := false
 
 func toggle_visibility() -> void:
-	cancel = false
-	while(true):
-		if (cancel):
-			return
+	while(!cancel):
 		$Icon.visible = !$Icon.visible
 		yield(get_tree().create_timer(1), "timeout")
 
